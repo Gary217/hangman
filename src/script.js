@@ -10,12 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		return element;
 	};
 
-	createEl('main', 'container', wrapper);
-	const main = document.querySelector('.container');
-	createEl('div', 'hangman-container', main);
-	const hangmanContainer = document.querySelector('.hangman-container');
-	createEl('div', 'hangman', hangmanContainer);
-	const hangman = document.querySelector('.hangman');
+	const main = createEl('main', 'container', wrapper);
+
+	//hangman-container
+	const hangmanContainer = createEl('div', 'hangman-container', main);
+	const hangman = createEl('div', 'hangman', hangmanContainer);
 
 	for (let i = 1; i <= 5; i++) {
 		createEl('span', `hangman__gallows${i}`, hangman);
@@ -24,11 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		createEl('span', `hangman__Buster${i}`, hangman);
 	}
 
-	createEl('h1', 'hangman__title', hangmanContainer);
-	const hangmanTitle = document.querySelector('.hangman__title');
+	const hangmanTitle = createEl('h1', 'hangman__title', hangmanContainer);
 	hangmanTitle.textContent = 'HANGMAN GAME';
-	createEl('div', 'keyboard-container', main);
-	const keyboardContainer = document.querySelector('.keyboard-container');
-	createEl('div', 'display', keyboardContainer);
-	createEl('div', 'keyboard', keyboardContainer);
+
+	//keyboard-container
+	const keyboardContainer = createEl('div', 'keyboard-container', main);
+
+	const display = createEl('div', 'display', keyboardContainer);
+	display.textContent = '_';
+
+	const question = createEl('div', 'question', keyboardContainer);
+	question.textContent = 'Hint: ';
+
+	const guesses = createEl('div', 'guesses', keyboardContainer);
+	guesses.textContent = 'Incorrect guesses: 0 / 6';
+
+	const keyboard = createEl('div', 'keyboard', keyboardContainer);
+	
+	const keyboardArr = [
+		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+		'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+		'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+	];
+
+	for (let i = 0; i < keyboardArr.length; i++) {
+		const keyboardBtn = createEl('button', 'keyboard__btn', keyboard);
+		keyboardBtn.textContent = keyboardArr[i];
+	}
 });

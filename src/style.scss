@@ -172,13 +172,43 @@ html {
 
 .keyboard-container {
 	background: antiquewhite;
-	width: 60%;
+    width: 60%;
+    display: grid;
+    align-items: center;
+	justify-content: center;
+    text-align: center;
 }
 
 .display {
 
 }
 
-.keyboard {
+.question {
 
+}
+
+.guesses {
+
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+	width: 420rem;
+
+	&__btn {
+		width: 40rem;
+		height: 40rem;
+		border-radius: 15%;
+		color: white;
+		background: rgb(49, 51, 56);
+		border-color: transparent;
+		&:hover {
+			color: rgb(241, 196, 15);
+			cursor: pointer;
+		}
+	}
 }

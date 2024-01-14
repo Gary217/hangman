@@ -171,4 +171,29 @@ html {
 .keyboard-container {
   background: antiquewhite;
   width: 60%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  width: 420rem;
+}
+.keyboard__btn {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 15%;
+  color: white;
+  background: rgb(49, 51, 56);
+  border-color: transparent;
+}
+.keyboard__btn:hover {
+  color: rgb(241, 196, 15);
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
