@@ -1,1 +1,114 @@
-/*# sourceMappingURL=style.css.map */
+:root {
+  font-size: 1px;
+}
+
+body {
+  font-size: 16rem;
+  padding: 50rem 25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 1440px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+@media (max-width: 360px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  list-style: none;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1390rem;
+  margin: 0 auto;
+  min-height: 450rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hangman-container {
+  background: aquamarine;
+  width: 40%;
+  display: grid;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.hangman {
+  position: relative;
+  height: 385rem;
+}
+.hangman__span1 {
+  width: 65rem;
+  display: block;
+  height: 5rem;
+  background: black;
+  transform: rotate(270deg);
+  position: absolute;
+  top: 0;
+  right: 25px;
+  transform-origin: right;
+}
+.hangman__span2 {
+  width: 85rem;
+  display: block;
+  height: 5rem;
+  background: black;
+  transform: rotate(135deg);
+  position: absolute;
+  left: 60px;
+  transform-origin: left;
+}
+.hangman__span3 {
+  width: 250rem;
+  display: block;
+  height: 5rem;
+  background: black;
+}
+.hangman__span4 {
+  width: 383rem;
+  display: block;
+  height: 5rem;
+  background: black;
+  transform: rotate(270deg);
+  position: absolute;
+  bottom: 0;
+  transform-origin: left;
+}
+.hangman__span5 {
+  width: 400rem;
+  display: block;
+  height: 5rem;
+  position: absolute;
+  background: black;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hangman__title {
+  text-align: center;
+}
+
+.keyboard-container {
+  background: antiquewhite;
+  width: 60%;
+}/*# sourceMappingURL=style.css.map */
