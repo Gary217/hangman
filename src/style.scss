@@ -4,7 +4,7 @@
 
 body {
 	font-size: 16rem;
-    padding: 50rem 25rem;
+	padding: 50rem 25rem;
 }
 
 $desktop: 1440px;
@@ -24,8 +24,8 @@ html {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Inter', sans-serif;
-	font-weight: 600;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
 	list-style: none;
 	text-decoration: none;
 	transition: .3s;
@@ -38,23 +38,56 @@ html {
 
 .container {
 	max-width: 1390rem;
-    margin: 0 auto;
-    min-height: 450rem;
-    display: flex;
-    flex-wrap: wrap;
+	margin: 0 auto;
+	min-height: 450rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.modal-win {
+	background: url(../assets/billy.png) 50% / cover no-repeat;
+	position: absolute;
+    width: 500px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+	visibility: hidden;
+	display: grid;
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+	color: white;
+}
+
+.modal-lose {
+	background: url(../assets/van.jpg) 50% / cover no-repeat;
+	position: absolute;
+    width: 500px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+	display: grid;
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+	color: white;
 }
 
 .hangman-container {
 	background: aquamarine;
-    width: 40%;
-    display: grid;
-    align-content: space-between;
-    justify-content: center;
+	width: 40%;
+	display: grid;
+	align-content: space-between;
+	justify-content: center;
 }
 
 .hangman {
 	position: relative;
-    height: 385rem;
+	height: 385rem;
 
 	&__gallows1 {
 		width: 65rem;
@@ -172,15 +205,30 @@ html {
 
 .keyboard-container {
 	background: antiquewhite;
-    width: 60%;
-    display: grid;
-    align-items: center;
+	width: 60%;
+	display: grid;
+	align-items: center;
 	justify-content: center;
-    text-align: center;
+	text-align: center;
 }
 
 .display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 9rem;
 
+	&__letter-container_hidden {
+		border-bottom: solid black;
+		color: transparent;
+		user-select: none;
+	}
+
+	&__letter-container_active {
+		border-bottom: solid transparent;
+		color: black;
+		user-select: auto;
+	}
 }
 
 .question {
@@ -192,12 +240,13 @@ html {
 }
 
 .keyboard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5rem;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5rem;
+	align-items: center;
+	justify-content: center;
 	width: 420rem;
+	user-select: none;
 
 	&__btn {
 		width: 40rem;
