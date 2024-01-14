@@ -57,18 +57,18 @@ html {
   position: relative;
   height: 385rem;
 }
-.hangman__span1 {
+.hangman__gallows1 {
   width: 65rem;
   display: block;
   height: 5rem;
   background: black;
   transform: rotate(270deg);
   position: absolute;
-  top: 0;
-  right: 25px;
+  top: -3rem;
+  left: 183rem;
   transform-origin: right;
 }
-.hangman__span2 {
+.hangman__gallows2 {
   width: 85rem;
   display: block;
   height: 5rem;
@@ -78,13 +78,13 @@ html {
   left: 60px;
   transform-origin: left;
 }
-.hangman__span3 {
+.hangman__gallows3 {
   width: 250rem;
   display: block;
   height: 5rem;
   background: black;
 }
-.hangman__span4 {
+.hangman__gallows4 {
   width: 383rem;
   display: block;
   height: 5rem;
@@ -94,7 +94,7 @@ html {
   bottom: 0;
   transform-origin: left;
 }
-.hangman__span5 {
+.hangman__gallows5 {
   width: 400rem;
   display: block;
   height: 5rem;
@@ -103,6 +103,66 @@ html {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+.hangman__Buster1 {
+  display: block;
+  width: 50rem;
+  height: 50rem;
+  border-radius: 50%;
+  border: 5rem solid black;
+  position: absolute;
+  left: 223rem;
+  top: 63rem;
+}
+.hangman__Buster2 {
+  background: black;
+  display: block;
+  width: 100rem;
+  height: 5rem;
+  position: absolute;
+  left: 198rem;
+  top: 156rem;
+  transform: rotate(90deg);
+}
+.hangman__Buster3 {
+  background: black;
+  display: block;
+  width: 60rem;
+  height: 5rem;
+  position: absolute;
+  left: 203rem;
+  top: 142rem;
+  transform: rotate(120deg);
+}
+.hangman__Buster4 {
+  background: black;
+  display: block;
+  width: 60rem;
+  height: 5rem;
+  position: absolute;
+  left: 233rem;
+  top: 142rem;
+  transform: rotate(240deg);
+}
+.hangman__Buster5 {
+  background: black;
+  display: block;
+  width: 70rem;
+  height: 5rem;
+  position: absolute;
+  left: 195rem;
+  top: 231rem;
+  transform: rotate(120deg);
+}
+.hangman__Buster6 {
+  background: black;
+  display: block;
+  width: 70rem;
+  height: 5rem;
+  position: absolute;
+  left: 231rem;
+  top: 231rem;
+  transform: rotate(240deg);
 }
 .hangman__title {
   text-align: center;

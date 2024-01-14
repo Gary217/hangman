@@ -56,18 +56,18 @@ html {
 	position: relative;
     height: 385rem;
 
-	&__span1 {
+	&__gallows1 {
 		width: 65rem;
 		display: block;
 		height: 5rem;
 		background: black;
 		transform: rotate(270deg);
 		position: absolute;
-		top: 0;
-		right: 25px;
+		top: -3rem;
+		left: 183rem;
 		transform-origin: right;
 	}
-	&__span2 {
+	&__gallows2 {
 		width: 85rem;
 		display: block;
 		height: 5rem;
@@ -77,13 +77,13 @@ html {
 		left: 60px;
 		transform-origin: left;
 	}
-	&__span3 {
+	&__gallows3 {
 		width: 250rem;
 		display: block;
 		height: 5rem;
 		background: black;
 	}
-	&__span4 {
+	&__gallows4 {
 		width: 383rem;
 		display: block;
 		height: 5rem;
@@ -93,7 +93,7 @@ html {
 		bottom: 0;
 		transform-origin: left;
 	}
-	&__span5 {
+	&__gallows5 {
 		width: 400rem;
 		display: block;
 		height: 5rem;
@@ -102,6 +102,67 @@ html {
 		bottom: 0;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+
+	&__Buster1 {
+		display: block;
+		width: 50rem;
+		height: 50rem;
+		border-radius: 50%;
+		border: 5rem solid black;
+		position: absolute;
+		left: 223rem;
+		top: 63rem;
+	}
+	&__Buster2 {
+		background: black;
+		display: block;
+		width: 100rem;
+		height: 5rem;
+		position: absolute;
+		left: 198rem;
+		top: 156rem;
+		transform: rotate(90deg);
+	}
+	&__Buster3 {
+		background: black;
+		display: block;
+		width: 60rem;
+		height: 5rem;
+		position: absolute;
+		left: 203rem;
+		top: 142rem;
+		transform: rotate(120deg);
+	}
+	&__Buster4 {
+		background: black;
+		display: block;
+		width: 60rem;
+		height: 5rem;
+		position: absolute;
+		left: 233rem;
+		top: 142rem;
+		transform: rotate(240deg);
+	}
+	&__Buster5 {
+		background: black;
+		display: block;
+		width: 70rem;
+		height: 5rem;
+		position: absolute;
+		left: 195rem;
+		top: 231rem;
+		transform: rotate(120deg);
+	}
+	&__Buster6 {
+		background: black;
+		display: block;
+		width: 70rem;
+		height: 5rem;
+		position: absolute;
+		left: 231rem;
+		top: 231rem;
+		transform: rotate(240deg);
 	}
 
 	&__title {

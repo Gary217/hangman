@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	wrapper.classList.add('wrapper');
 	document.body.prepend(wrapper);
 
-	const createEl = (htmlElement, cssClass, child) => {
+	const createEl = (htmlElement, cssClass, parent) => {
 		const element = document.createElement(htmlElement);
 		element.classList.add(cssClass);
-		child.appendChild(element);
+		parent.appendChild(element);
+		return element;
 	};
 
 	createEl('main', 'container', wrapper);
@@ -15,11 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	const hangmanContainer = document.querySelector('.hangman-container');
 	createEl('div', 'hangman', hangmanContainer);
 	const hangman = document.querySelector('.hangman');
-	createEl('span', 'hangman__span1', hangman);
-	createEl('span', 'hangman__span2', hangman);
-	createEl('span', 'hangman__span3', hangman);
-	createEl('span', 'hangman__span4', hangman);
-	createEl('span', 'hangman__span5', hangman);
+
+	for (let i = 1; i <= 5; i++) {
+		createEl('span', `hangman__gallows${i}`, hangman);
+	}
+	for (let i = 1; i <= 6; i++) {
+		createEl('span', `hangman__Buster${i}`, hangman);
+	}
+
 	createEl('h1', 'hangman__title', hangmanContainer);
 	const hangmanTitle = document.querySelector('.hangman__title');
 	hangmanTitle.textContent = 'HANGMAN GAME';
