@@ -24,10 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	const hangmanTitle = createEl('h1', 'hangman__title', hangmanContainer);
-	hangmanTitle.textContent = 'HANGMAN GAME';
+	hangmanTitle.textContent = 'LEATHERMAN GAME';
+	const hangmanSpan = document.createElement('span');
+	hangmanSpan.classList.add('hangman__span');
+	hangmanTitle.prepend(hangmanSpan);
+	hangmanSpan.textContent = 'HANG';
 
 	//keyboard-container
 	const keyboardContainer = createEl('div', 'keyboard-container', main);
+
 	let display = createEl('div', 'display', keyboardContainer);
 
 	const answers = [
@@ -71,12 +76,25 @@ document.addEventListener('DOMContentLoaded', () => {
 	//modal-win
 	const win = () => {
 		const modalWin = createEl('div', 'modal-win', main);
+		modalWin.style.visibility = 'auto';
 		const winTitle = createEl('h2', 'modal-win__title', modalWin);
 		winTitle.textContent = 'YOU WON!';
 		const winAnswer = createEl('h3', 'modal-win__answer', modalWin);
 		winAnswer.textContent = startWord;
 		const winBtn = createEl('button', 'modal-win__btn', modalWin);
 		winBtn.textContent = 'play again';
+
+		if (winBtn.addEventListener('click', () => {
+			count = 0;
+			guesses.textContent = `Incorrect guesses: ${count} / 6`;
+			modalWin.style.visibility = 'hidden';
+
+			//remove active-mod on display-letters
+			for (let j = 0; j < startWord.length; j++) {
+				const letterContainer = display.children[j];
+				letterContainer.classList.remove('display__letter-container_active');
+			};
+		}));
 	};
 
 	//modal-lose
@@ -94,6 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			count = 0;
 			guesses.textContent = `Incorrect guesses: ${count} / 6`;
 			modalLose.style.visibility = 'hidden';
+
+			//remove active-mod on display-letters
+			for (let j = 0; j < startWord.length; j++) {
+				const letterContainer = display.children[j];
+				letterContainer.classList.remove('display__letter-container_active');
+			};
 		}));
 	};
 
@@ -109,8 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			for (let j = 0; j < startWord.length; j++) {
 				const letterContainer = display.children[j];
-				if (event.target.textContent === startWord[j]) {
 
+				if (event.target.textContent === startWord[j]) {
 					//add active-mod on display-letters
 					letterContainer.classList.add('display__letter-container_active');
 					isMatch = true;

@@ -211,6 +211,11 @@ html {
 	&__title {
 		text-align: center;
 	}
+
+	&__span {
+		text-decoration: line-through;
+		text-decoration-color: orangered;
+	}
 }
 
 .keyboard-container {

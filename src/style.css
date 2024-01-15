@@ -207,6 +207,10 @@ html {
 .hangman__title {
   text-align: center;
 }
+.hangman__span {
+  text-decoration: line-through;
+  text-decoration-color: orangered;
+}
 
 .keyboard-container {
   background: antiquewhite;
