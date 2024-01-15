@@ -46,10 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let startWord = answers[0].join('');
 
+	//hidden startWord
 	for (let i = 0; i < answers[0].length; i++) {
 		let letterContainer = createEl('div', 'display__letter-container_hidden', display);
 		letterContainer.textContent = startWord[i];
 	}
+	console.log(startWord);
 
 	const question = createEl('div', 'question', keyboardContainer);
 	question.textContent = 'Hint: ';
@@ -90,29 +92,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let keyboardBtn;
 	for (let i = 0; i < keyboardArr.length; i++) {
-
+		//generate btns
 		keyboardBtn = createEl('button', 'keyboard__btn', keyboard);
 		keyboardBtn.textContent = keyboardArr[i];
 
 		keyboardBtn.addEventListener('click', (event) => {
 			let isMatch = false;
+			let activeLettersCount = 0;
 
 			for (let j = 0; j < startWord.length; j++) {
 				const letterContainer = display.children[j];
 				if (event.target.textContent === startWord[j]) {
-					letterContainer.classList.toggle('display__letter-container_active');
+
+					//add active-mod to buttons
+					letterContainer.classList.add('display__letter-container_active');
 					isMatch = true;
-				}
+				};
+
+				//win
+				if (letterContainer.classList.contains('display__letter-container_active')) {
+					activeLettersCount++;
+					if (activeLettersCount === startWord.length) {
+						win();
+					}
+				};
 			};
 
+			//lose-counter
 			if (!isMatch && count < 6) {
 				count++;
 				guesses.textContent = `Incorrect guesses: ${count} / 6`;
-			}
 
-			if (count === 6) {
-				lose();
-			}
+				//lose
+				if (count === 6) {
+					lose();
+				};
+			};
 
 		});
 	};
