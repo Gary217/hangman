@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		createEl('span', `hangman__gallows${i}`, hangman);
 	};
 	for (let i = 1; i <= 6; i++) {
-		createEl('span', `hangman__Buster${i}`, hangman);
+		createEl('span', `hangman__Buster${i}_hidden`, hangman);
 	};
 
 	const hangmanTitle = createEl('h1', 'hangman__title', hangmanContainer);
@@ -77,18 +77,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		winAnswer.textContent = startWord;
 		const winBtn = createEl('button', 'modal-win__btn', modalWin);
 		winBtn.textContent = 'play again';
-	}
+	};
 
 	//modal-lose
 	const lose = () => {
 		const modalLose = createEl('div', 'modal-lose', main);
+		modalLose.style.visibility = 'auto';
 		const loseTitle = createEl('h2', 'modal-lose__title', modalLose);
 		loseTitle.textContent = 'You lose!';
 		const loseAnswer = createEl('h3', 'modal-lose__answer', modalLose);
 		loseAnswer.textContent = startWord;
 		const loseBtn = createEl('button', 'modal-lose__btn', modalLose);
 		loseBtn.textContent = 'play again';
-	}
+
+		if (loseBtn.addEventListener('click', () => {
+			count = 0;
+			guesses.textContent = `Incorrect guesses: ${count} / 6`;
+			modalLose.style.visibility = 'hidden';
+		}));
+	};
 
 	let keyboardBtn;
 	for (let i = 0; i < keyboardArr.length; i++) {
@@ -104,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				const letterContainer = display.children[j];
 				if (event.target.textContent === startWord[j]) {
 
-					//add active-mod to buttons
+					//add active-mod on display-letters
 					letterContainer.classList.add('display__letter-container_active');
 					isMatch = true;
 				};
@@ -122,6 +129,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (!isMatch && count < 6) {
 				count++;
 				guesses.textContent = `Incorrect guesses: ${count} / 6`;
+
+				//add part of Buster
+				for (let i = 1; i <= 6; i++) {
+					let partOfBuster = document.querySelector(`.hangman__Buster${i}_hidden`);
+					let headOfBuster = document.querySelector(`.hangman__Buster1_hidden`);
+					if (!partOfBuster.classList.contains('hangman__Buster_active')) {
+						partOfBuster.classList.add('hangman__Buster_active');
+
+						//Busters head styles
+						if (headOfBuster.classList.contains('hangman__Buster_active')) {
+							headOfBuster.classList.add('hangman__Buster1_active');
+						};
+						break;
+					};
+				};
 
 				//lose
 				if (count === 6) {

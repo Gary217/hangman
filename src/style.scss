@@ -136,18 +136,20 @@ html {
 		transform: translateX(-50%);
 	}
 
-	&__Buster1 {
+	&__Buster1_hidden {
+		background: transparent;
 		display: block;
 		width: 50rem;
 		height: 50rem;
 		border-radius: 50%;
-		border: 5rem solid black;
+		border: 5rem solid transparent;
 		position: absolute;
 		left: 223rem;
 		top: 63rem;
 	}
-	&__Buster2 {
-		background: black;
+
+	&__Buster2_hidden {
+		background: transparent;
 		display: block;
 		width: 100rem;
 		height: 5rem;
@@ -156,8 +158,8 @@ html {
 		top: 156rem;
 		transform: rotate(90deg);
 	}
-	&__Buster3 {
-		background: black;
+	&__Buster3_hidden {
+		background: transparent;
 		display: block;
 		width: 60rem;
 		height: 5rem;
@@ -166,8 +168,8 @@ html {
 		top: 142rem;
 		transform: rotate(120deg);
 	}
-	&__Buster4 {
-		background: black;
+	&__Buster4_hidden {
+		background: transparent;
 		display: block;
 		width: 60rem;
 		height: 5rem;
@@ -176,8 +178,8 @@ html {
 		top: 142rem;
 		transform: rotate(240deg);
 	}
-	&__Buster5 {
-		background: black;
+	&__Buster5_hidden {
+		background: transparent;
 		display: block;
 		width: 70rem;
 		height: 5rem;
@@ -186,8 +188,8 @@ html {
 		top: 231rem;
 		transform: rotate(120deg);
 	}
-	&__Buster6 {
-		background: black;
+	&__Buster6_hidden {
+		background: transparent;
 		display: block;
 		width: 70rem;
 		height: 5rem;
@@ -195,6 +197,15 @@ html {
 		left: 231rem;
 		top: 231rem;
 		transform: rotate(240deg);
+	}
+
+	&__Buster_active {
+		background: black;
+	}
+
+	&__Buster1_active {
+		background: transparent;
+		border: 5rem solid black;
 	}
 
 	&__title {
