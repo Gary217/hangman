@@ -49,14 +49,27 @@ document.addEventListener('DOMContentLoaded', () => {
 		['D', 'O', 'O', 'R']
 	];
 
-	let startWord = answers[0].join('');
-
-	//hidden startWord
-	for (let i = 0; i < answers[0].length; i++) {
-		let letterContainer = createEl('div', 'display__letter-container_hidden', display);
-		letterContainer.textContent = startWord[i];
+	//add random func
+	function getRandomWord() {
+		const randomIndex = Math.floor(Math.random() * answers.length);
+		return answers[randomIndex].join('');
 	}
-	console.log(startWord);
+
+	let startWord = getRandomWord();
+
+	//add reload func
+	const reloadFunc = () => {
+		startWord = getRandomWord();
+
+		//hidden startWord
+		display.innerHTML = '';
+		for (let i = 0; i < startWord.length; i++) {
+			let letterContainer = createEl('div', 'display__letter-container_hidden', display);
+			letterContainer.textContent = startWord[i];
+		}
+		console.log(startWord);
+	}
+	reloadFunc();
 
 	const question = createEl('div', 'question', keyboardContainer);
 	question.textContent = 'Hint: ';
@@ -89,11 +102,28 @@ document.addEventListener('DOMContentLoaded', () => {
 			guesses.textContent = `Incorrect guesses: ${count} / 6`;
 			modalWin.style.visibility = 'hidden';
 
+			reloadFunc();
+
 			//remove active-mod on display-letters
 			for (let j = 0; j < startWord.length; j++) {
 				const letterContainer = display.children[j];
 				letterContainer.classList.remove('display__letter-container_active');
 			};
+
+			//remove Busters parts
+			for (let i = 1; i <= 6; i++) {
+				let partOfBuster = document.querySelector(`.hangman__Buster${i}_hidden`);
+				let headOfBuster = document.querySelector(`.hangman__Buster1_hidden`);
+
+				if (partOfBuster.classList.contains('hangman__Buster_active')) {
+					partOfBuster.classList.remove('hangman__Buster_active');
+					//Busters head styles
+					if (!headOfBuster.classList.contains('hangman__Buster_active')) {
+						headOfBuster.classList.remove('hangman__Buster1_active');
+					};
+				};
+			};
+
 		}));
 	};
 
@@ -109,17 +139,36 @@ document.addEventListener('DOMContentLoaded', () => {
 		loseBtn.textContent = 'play again';
 
 		if (loseBtn.addEventListener('click', () => {
+			display.innerHTML = '';
 			count = 0;
 			guesses.textContent = `Incorrect guesses: ${count} / 6`;
 			modalLose.style.visibility = 'hidden';
+
+			reloadFunc();
 
 			//remove active-mod on display-letters
 			for (let j = 0; j < startWord.length; j++) {
 				const letterContainer = display.children[j];
 				letterContainer.classList.remove('display__letter-container_active');
 			};
+
+			//remove Busters parts
+			for (let i = 1; i <= 6; i++) {
+				let partOfBuster = document.querySelector(`.hangman__Buster${i}_hidden`);
+				let headOfBuster = document.querySelector(`.hangman__Buster1_hidden`);
+
+				if (partOfBuster.classList.contains('hangman__Buster_active')) {
+					partOfBuster.classList.remove('hangman__Buster_active');
+					//Busters head styles
+					if (!headOfBuster.classList.contains('hangman__Buster_active')) {
+						headOfBuster.classList.remove('hangman__Buster1_active');
+					};
+				};
+			};
+
 		}));
 	};
+	
 
 	let keyboardBtn;
 	for (let i = 0; i < keyboardArr.length; i++) {
