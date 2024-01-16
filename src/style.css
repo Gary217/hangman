@@ -4,13 +4,18 @@
 
 body {
   font-size: 16rem;
-  padding: 50rem 25rem;
+  padding-top: 2%;
 }
 
 html {
   scroll-behavior: smooth;
 }
 @media (max-width: 1440px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+@media (max-width: 768px) {
   html {
     scroll-behavior: smooth;
   }
@@ -40,9 +45,13 @@ html {
 .container {
   max-width: 1390rem;
   margin: 0 auto;
-  min-height: 450rem;
   display: flex;
   flex-wrap: wrap;
+}
+@media (max-width: 1100px) {
+  .container {
+    display: grid;
+  }
 }
 
 .modal-win {
@@ -83,6 +92,11 @@ html {
   display: grid;
   align-content: space-between;
   justify-content: center;
+}
+@media (max-width: 1100px) {
+  .hangman-container {
+    width: auto;
+  }
 }
 
 .hangman {
@@ -135,6 +149,12 @@ html {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+@media (max-width: 430px) {
+  .hangman__gallows5 {
+    width: 313rem;
+    left: 39%;
+  }
 }
 .hangman__Buster1_hidden {
   background: transparent;
@@ -220,6 +240,12 @@ html {
   justify-content: center;
   text-align: center;
 }
+@media (max-width: 1100px) {
+  .keyboard-container {
+    min-height: 450rem;
+    width: auto;
+  }
+}
 
 .display {
   display: flex;
@@ -264,4 +290,11 @@ html {
 .keyboard__btn:hover {
   color: rgb(241, 196, 15);
   cursor: pointer;
+}
+.keyboard__btn_inactive {
+  background: tomato;
+  color: rgb(241, 196, 15);
+}
+.keyboard__btn_inactive:hover {
+  cursor: auto;
 }/*# sourceMappingURL=style.css.map */

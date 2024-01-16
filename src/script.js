@@ -35,12 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let display = createEl('div', 'display', keyboardContainer);
 
+	const questions = [
+		['The old name of "main" branch in git?'],
+		['A programmer in a virtual labyrinth where bugs are monsters.'],
+		['To avoid getting sick at work, go to the ...!'],
+		['Code weaves a digital ....... bringing imagination to life.'],
+		['Every project has its final .... .'],
+		['Every ...... on the keyboard is the magic of creating code.'],
+		['The keyword in the context of SASS is used to change the color, making it darker.'],
+		['.... study of a topic makes great programmers.'],
+		["Let's ......... successful moments in the code!"],
+		['Every programmer stands before an open .... to a world of possibilities.']
+	];
+
 	const answers = [
 		['M','A','S','T','E','R'],
 		['D','U','N','G','E','O','N'],
 		['G','Y','M'],
 		['F','A','N','T','A','S','Y'],
-		['L', 'E', 'A', 'T', 'H', 'E', 'R'],
 		['B', 'O', 'S', 'S'],
 		['F', 'I', 'N', 'G', 'E', 'R'],
 		['D', 'A', 'R', 'K', 'E', 'N'],
@@ -50,12 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	];
 
 	//add random func
+	let randomIndex;
 	function getRandomWord() {
-		const randomIndex = Math.floor(Math.random() * answers.length);
+		randomIndex = Math.floor(Math.random() * answers.length);
 		return answers[randomIndex].join('');
 	}
 
 	let startWord = getRandomWord();
+	const question = createEl('div', 'question', keyboardContainer);
 
 	//add reload func
 	const reloadFunc = () => {
@@ -63,16 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		//hidden startWord
 		display.innerHTML = '';
+		question.innerHTML = '';
+
+		let keyboardBtns = document.querySelectorAll('.keyboard__btn_inactive');
+		keyboardBtns.forEach((btn) => {
+			btn.classList.remove('keyboard__btn_inactive');
+		});
+
 		for (let i = 0; i < startWord.length; i++) {
 			let letterContainer = createEl('div', 'display__letter-container_hidden', display);
 			letterContainer.textContent = startWord[i];
 		}
 		console.log(startWord);
+
+		//add new question
+		for (let i = 0; i < questions.length; i++) {
+			if (i === randomIndex) {
+				question.textContent = 'Hint: ' + questions[i];
+			};
+		};
 	}
 	reloadFunc();
-
-	const question = createEl('div', 'question', keyboardContainer);
-	question.textContent = 'Hint: ';
 
 	const guesses = createEl('div', 'guesses', keyboardContainer);
 	let count = 0;
@@ -169,11 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		}));
 	};
 	
-
-	let keyboardBtn;
 	for (let i = 0; i < keyboardArr.length; i++) {
 		//generate btns
-		keyboardBtn = createEl('button', 'keyboard__btn', keyboard);
+		let keyboardBtn = createEl('button', 'keyboard__btn', keyboard);
 		keyboardBtn.textContent = keyboardArr[i];
 
 		keyboardBtn.addEventListener('click', (event) => {
@@ -194,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					activeLettersCount++;
 					if (activeLettersCount === startWord.length) {
 						win();
-					}
+					};
 				};
 			};
 
@@ -202,6 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (!isMatch && count < 6) {
 				count++;
 				guesses.textContent = `Incorrect guesses: ${count} / 6`;
+				keyboardBtn.classList.add('keyboard__btn_inactive');
+				event.target.disabled = true;
 
 				//add part of Buster
 				for (let i = 1; i <= 6; i++) {
@@ -222,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (count === 6) {
 					lose();
 				};
+
 			};
 
 		});
