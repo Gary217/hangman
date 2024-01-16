@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let keyboardBtns = document.querySelectorAll('.keyboard__btn_inactive');
 		keyboardBtns.forEach((btn) => {
 			btn.classList.remove('keyboard__btn_inactive');
+			btn.disabled = false;
 		});
 
 		for (let i = 0; i < startWord.length; i++) {
@@ -210,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					//add active-mod on display-letters
 					letterContainer.classList.add('display__letter-container_active');
 					isMatch = true;
+					keyboardBtn.classList.add('keyboard__btn_inactive');
 				};
 
 				//win
