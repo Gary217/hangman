@@ -5,6 +5,7 @@
 body {
   font-size: 16rem;
   padding-top: 2%;
+  background: antiquewhite;
 }
 
 html {
@@ -89,7 +90,6 @@ html {
 }
 
 .hangman-container {
-  background: aquamarine;
   width: 40%;
   display: grid;
   align-content: space-between;
@@ -245,7 +245,6 @@ html {
 }
 
 .keyboard-container {
-  background: antiquewhite;
   width: 60%;
   display: grid;
   align-items: center;

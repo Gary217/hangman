@@ -4,8 +4,8 @@
 
 body {
 	font-size: 16rem;
-	// padding: 50rem 25rem;
 	padding-top: 2%;
+	background: antiquewhite;
 }
 
 $desktop: 1440px;
@@ -87,7 +87,6 @@ html {
 }
 
 .hangman-container {
-	background: aquamarine;
 	width: 40%;
 	display: grid;
 	align-content: space-between;
@@ -245,7 +244,6 @@ html {
 }
 
 .keyboard-container {
-	background: antiquewhite;
 	width: 60%;
 	display: grid;
 	align-items: center;
