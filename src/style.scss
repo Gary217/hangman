@@ -49,6 +49,8 @@ html {
 
 	@media (max-width: $tablet) {
 		display: grid;
+		align-items: center;
+		justify-content: center;
 	}
 }
 
@@ -93,6 +95,9 @@ html {
 
 	@media (max-width: $tablet) {
 		width: auto;
+	}
+	@media (max-width: $mobile) {
+		width: 360rem;
 	}
 }
 
@@ -149,7 +154,7 @@ html {
 
 		@media (max-width: $mobile) {
 			width: 313rem;
-			left: 39%;
+			left: 154rem;
 		}
 	}
 
@@ -227,6 +232,10 @@ html {
 
 	&__title {
 		text-align: center;
+
+		@media (max-width: $mobile) {
+			font-size: 26rem;
+		}
 	}
 
 	&__span {
@@ -246,6 +255,9 @@ html {
 	@media (max-width: $tablet) {
 		min-height: 450rem;
 		width: auto;
+	}
+	@media (max-width: $mobile) {
+		width: 360rem;
 	}
 }
 
@@ -284,6 +296,11 @@ html {
 	justify-content: center;
 	width: 420rem;
 	user-select: none;
+
+	@media (max-width: $mobile) {
+		width: auto;
+		padding: 0 20rem;
+	}
 
 	&__btn {
 		width: 40rem;

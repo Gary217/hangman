@@ -255,4 +255,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	};
 
+    document.addEventListener('keydown', (event) => {
+        const pressedKey = event.key.toUpperCase(); // Получаем код клавиши (в верхнем регистре)
+
+        // Проверяем, что нажатая клавиша - буква алфавита
+        if (/^[A-Z]$/.test(pressedKey)) {
+            // Найти соответствующую кнопку и вызвать её обработчик события клика
+            const keyboardButtons = document.querySelectorAll('.keyboard__btn');
+            
+            for (const button of keyboardButtons) {
+                if (button.textContent === pressedKey) {
+                    button.click(); // Вызываем обработчик нажатия кнопки
+                    break; // Выход из цикла после нахождения соответствующей кнопки
+                }
+            }
+        }
+    });
+
 });
